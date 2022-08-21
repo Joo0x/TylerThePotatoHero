@@ -11,8 +11,7 @@ public class EnemyChasser : MonoBehaviour
     public Transform player;
     public static event Action damage;
     
-
-    [SerializeField] private float distNum = 15f;
+    
     // Start is called before the first frame update
 
     // Update is called once per frame

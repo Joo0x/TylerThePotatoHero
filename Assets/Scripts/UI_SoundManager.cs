@@ -27,18 +27,18 @@ public class UI_SoundManager : MonoBehaviour
     {
         instance.PlayOneShot(ew);
         killcount++;
-        Debug.Log(killcount);
+        //Debug.Log(killcount);
         killText.text = $"{killcount}";
-        if (killcount >= 4)
-        {
-            Invoke("Victory",1.5f);
-        }
+        // if (killcount >= 4)
+        // {
+        //     Invoke("Victory",1.5f);
+        // }
     }
 
-    private void Victory()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
+    // private void Victory()
+    // {
+    //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    // }
 
     private void ShootSound()
     {

@@ -1,33 +1,46 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class LetsGoUp : MonoBehaviour
 {
-    public Vector3 desirePosition , temp;
-
-
-    private static UI_SoundManager getkillCount;
-
-    private void Start()
-    {
-        desirePosition = transform.position;
-        //getkillCount = new UI_SoundManager();//works
-        getkillCount = GetComponent<UI_SoundManager>(); //dosenotwork
-    }
+    [SerializeField]
+    private float desirePosition;
+    public UI_SoundManager _killCheck;
+    private bool tylercolided =false;
+    
 
     private void Update()
     {
-
+        
+        if (tylercolided)
+        {
+            Debug.Log("Going UP");
+            transform.position = Vector3.MoveTowards(transform.position,Vector3.up, 4f * Time.deltaTime);
             
+            if (transform.position.y >= desirePosition)
+                tylercolided = false;
+        }
+        else if(_killCheck.killcount >= 4 && transform.position.y >= -1 && !tylercolided)
+        {
+            Debug.Log("Going Down");
+            transform.position = Vector3.MoveTowards(transform.position, Vector3.down, 4f * Time.deltaTime);
+        }
+
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        Vector3 current = transform.position;
         if (collision.gameObject.CompareTag("Player"))
-            transform.position = Vector3.MoveTowards(current,new Vector3(current.x , current.y + 3f , current.z),3f * Time.deltaTime);
+        {
+            //tylercolided = true;
+            collision.transform.position = new Vector3(50, 50, 50);
+        }
+        
+    }
+    
+    private void OnCollisionExit(Collision collision)
+    {
+  
         
     }
 
