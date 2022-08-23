@@ -29,8 +29,9 @@ public class EnemyChasser : MonoBehaviour
         var tyler = collision.gameObject.GetComponent<TylerControl>();
         if (collision.gameObject.CompareTag("Player"))
         {
-            tyler.GetComponent<Rigidbody>().AddForce(Vector3.forward,ForceMode.Force);
             tyler.damage(2);
+            tyler.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 20f,ForceMode.Acceleration);
+
         }
         
     }
