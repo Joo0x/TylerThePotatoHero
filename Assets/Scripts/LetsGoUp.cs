@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 
 public class LetsGoUp : MonoBehaviour
@@ -7,7 +8,11 @@ public class LetsGoUp : MonoBehaviour
     private float desirePosition;
     public UI_SoundManager _killCheck;
     private bool tylercolided =false;
-    
+
+    private void Awake()
+    {
+        _killCheck = GameObject.Find("UISoundManager").GetComponent<UI_SoundManager>();
+    }
 
     private void Update()
     {

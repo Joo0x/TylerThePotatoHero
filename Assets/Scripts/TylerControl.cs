@@ -1,8 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -15,8 +11,6 @@ public class TylerControl : MonoBehaviour
     private Vector3 LookInputs;
     private Rigidbody _rigidbody;
     private bool isGrounded;
-    
-    
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float moveSpeed = 5f;
@@ -24,8 +18,6 @@ public class TylerControl : MonoBehaviour
     [SerializeField] private float jumpHeight = 10f;
     [SerializeField] private bool InvertedMouseY = true;
     [SerializeField] private float health = 10;
-    public Image hp;
-
     #endregion
 
     public static event Action JumpHappend;
@@ -36,23 +28,25 @@ public class TylerControl : MonoBehaviour
 
     void FixedUpdate()
     {
-        hp.fillAmount = health / 10;
+        
         if (health <= 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        
         //Check Ground
         isGrounded = Physics.Linecast(transform.position, groundCheck.position, groundLayer);
         Debug.DrawLine(transform.position,groundCheck.position,Color.red);
         //Move
         _rigidbody.AddRelativeForce(MoveInputs , ForceMode.Force);
-        //Rotate
-        _rigidbody.rotation = Quaternion.Euler(0f,_rigidbody.rotation.eulerAngles.y +(LookInputs.x * rotateSpeed),0f);
         //Fall Speed increase
         if(!isGrounded)
             _rigidbody.AddForce(Physics.gravity * 1.5f, ForceMode.Acceleration);
-        
+    }
+
+    private void LateUpdate()
+    {
+        //Rotate
+        _rigidbody.rotation = Quaternion.Euler(0f,_rigidbody.rotation.eulerAngles.y +(LookInputs.x * rotateSpeed),0f);
     }
 
     void OnMove(InputValue input)

@@ -1,10 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Restart : MonoBehaviour
+public class BoundaryLimitation : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {

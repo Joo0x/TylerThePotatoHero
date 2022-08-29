@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 30086250}
   - component: {fileID: 30086249}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UIStartMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fdf618f860e3db409e17e92e1e2b050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNumber: 0
 --- !u!114 &30086250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +241,85 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &86101866
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8623898536577190350, guid: 9f476ac7cb9fce84c92e3889d17635d3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8623898536577190350, guid: 9f476ac7cb9fce84c92e3889d17635d3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -18.596672
+      objectReference: {fileID: 0}
+    - target: {fileID: 8623898536577190350, guid: 9f476ac7cb9fce84c92e3889d17635d3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.5707555
+      objectReference: {fileID: 0}
+    - target: {fileID: 8623898536577190350, guid: 9f476ac7cb9fce84c92e3889d17635d3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.8435817
+      objectReference: {fileID: 0}
+    - target: {fileID: 8623898536577190350, guid: 9f476ac7cb9fce84c92e3889d17635d3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8623898536577190350, guid: 9f476ac7cb9fce84c92e3889d17635d3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8623898536577190350, guid: 9f476ac7cb9fce84c92e3889d17635d3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8623898536577190350, guid: 9f476ac7cb9fce84c92e3889d17635d3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8623898536577190350, guid: 9f476ac7cb9fce84c92e3889d17635d3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8623898536577190350, guid: 9f476ac7cb9fce84c92e3889d17635d3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8623898536577190350, guid: 9f476ac7cb9fce84c92e3889d17635d3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8623898536577190351, guid: 9f476ac7cb9fce84c92e3889d17635d3,
+        type: 3}
+      propertyPath: buttonClick
+      value: 
+      objectReference: {fileID: 8300000, guid: 684c80e9b3a90604c8db5b0da274a62a, type: 3}
+    - target: {fileID: 8623898536577190351, guid: 9f476ac7cb9fce84c92e3889d17635d3,
+        type: 3}
+      propertyPath: buttonClickSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 684c80e9b3a90604c8db5b0da274a62a, type: 3}
+    - target: {fileID: 8623898536577190385, guid: 9f476ac7cb9fce84c92e3889d17635d3,
+        type: 3}
+      propertyPath: m_Name
+      value: UISoundManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9f476ac7cb9fce84c92e3889d17635d3, type: 3}
 --- !u!1 &300754071
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,13 +629,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 594904459}
-        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
-        m_MethodName: StartGame
-        m_Mode: 1
+        m_TargetAssemblyTypeName: SceneSwitcher, Assembly-CSharp
+        m_MethodName: SwitchScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -610,6 +690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fdf618f860e3db409e17e92e1e2b050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNumber: 0
 --- !u!1 &620095016
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,7 +893,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 714835242}
         m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -872,6 +953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fdf618f860e3db409e17e92e1e2b050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNumber: 0
 --- !u!1 &732111141
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,7 +964,7 @@ GameObject:
   m_Component:
   - component: {fileID: 732111142}
   m_Layer: 5
-  m_Name: TITLE
+  m_Name: HeroTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1057,7 +1139,7 @@ GameObject:
   - component: {fileID: 1103503608}
   - component: {fileID: 1103503607}
   m_Layer: 5
-  m_Name: BG
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,55 +1,77 @@
-
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UI_SoundManager : MonoBehaviour
 {
-    public AudioSource instance;
-    public AudioClip jumpSound,shoootSound,ew;
-    public TextMeshProUGUI killText;
+    public static UI_SoundManager UI_SoundInstance;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip jumpSound,shoootSound,dyingSound,damageSound,buttonClickSound;
+    [SerializeField] private TextMeshProUGUI killText;
+    [SerializeField] private Image HPImage;
     public float killcount;
     
 
     private void Awake()
     {
-        instance = GetComponent<AudioSource>();
+        Debug.Log("awake");
+        if (UI_SoundInstance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            UI_SoundInstance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
     {
         TylerControl.JumpHappend += JumpSound;
         Cannon.ShootHappend += ShootSound;
+        ChassingTyler.TakeDamage += DamageSound;
         Bullet.hit += OnHit;
+        SceneSwitcher.buttonClicked += ButtonSound;
+    }
+
+    
+    private void ButtonSound()
+    {
+        _audioSource.PlayOneShot(buttonClickSound);
+    }
+
+    private void DamageSound(float currentHealth)
+    {
+        if (HPImage == null)
+        {
+            HPImage = GameObject.Find("HitPointFG").GetComponent<Image>();
+        }
+            
+        HPImage.fillAmount = currentHealth / 10;
+        _audioSource.PlayOneShot(damageSound);
     }
 
     private void OnHit()
     {
-        instance.PlayOneShot(ew);
+        if (killText == null)
+        {
+            killText = GameObject.Find("KillCount").GetComponent<TextMeshProUGUI>();
+        }
+        _audioSource.PlayOneShot(dyingSound);
         killcount++;
-        //Debug.Log(killcount);
         killText.text = $"{killcount}";
-        // if (killcount >= 4)
-        // {
-        //     Invoke("Victory",1.5f);
-        // }
     }
-
-    // private void Victory()
-    // {
-    //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    // }
 
     private void ShootSound()
     {
-        instance.PlayOneShot(shoootSound);
-      
+        _audioSource.PlayOneShot(shoootSound);
     }
 
     private void JumpSound()
     {
-        instance.PlayOneShot(jumpSound);
-
+        _audioSource.PlayOneShot(jumpSound);
     }
 
     private void OnDisable()
@@ -57,6 +79,7 @@ public class UI_SoundManager : MonoBehaviour
         TylerControl.JumpHappend -= JumpSound;
         Cannon.ShootHappend -= ShootSound;
         Bullet.hit -= OnHit;
+        ChassingTyler.TakeDamage -= DamageSound;
     }
     
     

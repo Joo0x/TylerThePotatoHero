@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 30086251}
   - component: {fileID: 30086250}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UIVictoryScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -468,7 +468,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000038147, y: -214.5}
+  m_AnchoredPosition: {x: 0.0000038147, y: -151}
   m_SizeDelta: {x: 194.8309, y: 69.1848}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &714835239
@@ -577,6 +577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fdf618f860e3db409e17e92e1e2b050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNumber: 0
 --- !u!1 &732111141
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,7 +614,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 30}
+  m_AnchoredPosition: {x: 0, y: 74}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &906082712
@@ -1467,7 +1468,7 @@ GameObject:
   - component: {fileID: 2054059580}
   - component: {fileID: 2054059579}
   m_Layer: 5
-  m_Name: QUIT (1)
+  m_Name: PlayAgain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1491,7 +1492,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000038147, y: -127}
+  m_AnchoredPosition: {x: 0.0000038147, y: -63.500008}
   m_SizeDelta: {x: 194.8309, y: 69.1848}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2054059579
@@ -1506,6 +1507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fdf618f860e3db409e17e92e1e2b050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneNumber: 0
 --- !u!114 &2054059580
 MonoBehaviour:
   m_ObjectHideFlags: 0

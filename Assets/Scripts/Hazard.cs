@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class Hazard : MonoBehaviour
@@ -10,13 +8,6 @@ public class Hazard : MonoBehaviour
     [SerializeField] private float verticalNum;
     [SerializeField] private bool Vertical;
     private Vector3 _current;
-    
-
-    private void Awake()
-    {
-        
-
-    }
 
     void Start()
     {
@@ -30,13 +21,10 @@ public class Hazard : MonoBehaviour
         {
             destination.y += verticalNum;
         }
-
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
-
         transform.position = Vector3.Lerp(_current ,destination, Mathf.PingPong(speed * Time.time,1f));
     }
 }

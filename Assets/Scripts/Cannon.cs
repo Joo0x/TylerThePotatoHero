@@ -24,12 +24,11 @@ public class Cannon : MonoBehaviour
             Debug.Log("Pew");
             Instantiate(bullet, bulletSpawnPoint.position, transform.rotation);
             _timer = 0;
-            fire = false;
         }
     }
 
     void OnShoot(InputValue input)
     {
-        fire = true;
+        fire = input.isPressed;
     }
 }
