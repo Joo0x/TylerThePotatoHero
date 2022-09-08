@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -305,14 +305,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8623898536577190351, guid: 9f476ac7cb9fce84c92e3889d17635d3,
         type: 3}
+      propertyPath: platSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e6fee8ef857ae85468d50ce6e65bd549, type: 3}
+    - target: {fileID: 8623898536577190351, guid: 9f476ac7cb9fce84c92e3889d17635d3,
+        type: 3}
+      propertyPath: levelMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 9fe87bb3a0c7b5045951e2cc574a0555, type: 3}
+    - target: {fileID: 8623898536577190351, guid: 9f476ac7cb9fce84c92e3889d17635d3,
+        type: 3}
       propertyPath: buttonClick
       value: 
       objectReference: {fileID: 8300000, guid: 684c80e9b3a90604c8db5b0da274a62a, type: 3}
     - target: {fileID: 8623898536577190351, guid: 9f476ac7cb9fce84c92e3889d17635d3,
         type: 3}
+      propertyPath: victoryMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 455ba2c9efea87643ab3372d96b7bb47, type: 3}
+    - target: {fileID: 8623898536577190351, guid: 9f476ac7cb9fce84c92e3889d17635d3,
+        type: 3}
+      propertyPath: platformSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e6fee8ef857ae85468d50ce6e65bd549, type: 3}
+    - target: {fileID: 8623898536577190351, guid: 9f476ac7cb9fce84c92e3889d17635d3,
+        type: 3}
       propertyPath: buttonClickSound
       value: 
       objectReference: {fileID: 8300000, guid: 684c80e9b3a90604c8db5b0da274a62a, type: 3}
+    - target: {fileID: 8623898536577190384, guid: 9f476ac7cb9fce84c92e3889d17635d3,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d31b9f548a840e348afc8939aee7e490, type: 3}
     - target: {fileID: 8623898536577190385, guid: 9f476ac7cb9fce84c92e3889d17635d3,
         type: 3}
       propertyPath: m_Name
@@ -1004,7 +1029,7 @@ GameObject:
   - component: {fileID: 906082715}
   - component: {fileID: 906082714}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: sub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1215,7 +1240,7 @@ GameObject:
   - component: {fileID: 1145279067}
   - component: {fileID: 1145279066}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

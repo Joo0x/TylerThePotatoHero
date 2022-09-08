@@ -1,46 +1,52 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Timers;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float bulletSpeed;
-    [SerializeField] private float bulletLifeSpan;
+    private Rigidbody _rigidbody;
+    public delegate void OnDisableCallback(Bullet Instance);
+    public OnDisableCallback Disable ;
+    private float lifeSpanMax = 2f,lifespan;
 
     public static event Action hit;
 
-    private Rigidbody _rb;
 
-    private void Start()
+    private void Awake()
     {
-        _rb = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>() ;
     }
 
-    private void FixedUpdate()
-    {
-        _rb.velocity = transform.forward * bulletSpeed;
-        Invoke("Delete",bulletLifeSpan);
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-        if(collision.gameObject.CompareTag("Enemy"))
+    private void Update()
+    { 
+        lifespan += Time.deltaTime;
+        if (lifespan > lifeSpanMax)
         {
-            hit?.Invoke();
-            Destroy(collision.gameObject);
+            Debug.Log("this is shooting");
+            Disable?.Invoke(this);
+            lifespan = 0;
         }
-        Destroy(gameObject);
     }
 
-    private void Delete()
+    public void Shoot(Vector3 Position, Vector3 Direction, float speed)
     {
-        Destroy(gameObject);
+        _rigidbody.velocity = Vector3.zero;
+        transform.position = Position;
+        transform.forward = Direction;
+        
+        _rigidbody.AddForce(Direction*speed,ForceMode.VelocityChange);
     }
     
-
-
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.CompareTag("Enemy"))
+        {
+            Debug.Log("this is triggering");
+            Disable?.Invoke(this);
+            hit?.Invoke();
+            _rigidbody.velocity = Vector3.zero;
+            Destroy(other.gameObject);
+        }
+    }
 }

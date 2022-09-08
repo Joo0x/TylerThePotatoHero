@@ -6,7 +6,7 @@ public class UI_SoundManager : MonoBehaviour
 {
     public static UI_SoundManager UI_SoundInstance;
     [SerializeField] private AudioSource _audioSource;
-    [SerializeField] private AudioClip jumpSound,shoootSound,dyingSound,damageSound,buttonClickSound;
+    [SerializeField] private AudioClip jumpSound,platformSound,shoootSound,dyingSound,damageSound,buttonClickSound,levelMusic,victoryMusic;
     [SerializeField] private TextMeshProUGUI killText;
     [SerializeField] private Image HPImage;
     public float killcount;
@@ -29,17 +29,35 @@ public class UI_SoundManager : MonoBehaviour
 
     private void OnEnable()
     {
+        LetsGoUp.platMoved += PlayPlatSound;
+        Win.TylerWon += winSound;
         TylerControl.JumpHappend += JumpSound;
-        Cannon.ShootHappend += ShootSound;
+        BulletPool.ShootHappend += ShootSound;
         ChassingTyler.TakeDamage += DamageSound;
         Bullet.hit += OnHit;
         SceneSwitcher.buttonClicked += ButtonSound;
     }
 
+    private void winSound()
+    {
+        killcount = 0;
+        _audioSource.clip = null;
+        _audioSource.PlayOneShot(victoryMusic);
+        
+    }
     
+    private void PlayPlatSound()
+    {
+        _audioSource.PlayOneShot(platformSound);
+
+    }
+
+
     private void ButtonSound()
     {
         _audioSource.PlayOneShot(buttonClickSound);
+        _audioSource.clip = levelMusic;
+        _audioSource.Play();
     }
 
     private void DamageSound(float currentHealth)
@@ -72,15 +90,19 @@ public class UI_SoundManager : MonoBehaviour
     private void JumpSound()
     {
         _audioSource.PlayOneShot(jumpSound);
+
     }
 
     private void OnDisable()
     {
+        LetsGoUp.platMoved -= PlayPlatSound;
         TylerControl.JumpHappend -= JumpSound;
-        Cannon.ShootHappend -= ShootSound;
+        BulletPool.ShootHappend -= ShootSound;
         Bullet.hit -= OnHit;
         ChassingTyler.TakeDamage -= DamageSound;
+        SceneSwitcher.buttonClicked -= ButtonSound;
+
     }
-    
-    
+
+
 }

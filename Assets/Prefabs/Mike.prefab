@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4237814354105489078}
   - component: {fileID: 4237814354105489079}
   - component: {fileID: 3515400886333044589}
-  - component: {fileID: 4237814354105489070}
   - component: {fileID: 4237814354105489071}
   - component: {fileID: 2234811243729524202}
   m_Layer: 3
@@ -116,20 +115,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chasser: {fileID: 0}
   WhereIsTyler: {fileID: 0}
---- !u!114 &4237814354105489070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4237814354105489073}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59ac74e0d37af22478d8072d1d5c3e93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 4237814354105489071}
-  player: {fileID: 0}
 --- !u!195 &4237814354105489071
 NavMeshAgent:
   m_ObjectHideFlags: 0
