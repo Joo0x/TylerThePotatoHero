@@ -38,6 +38,7 @@ public class Bullet : MonoBehaviour
     }
     
     
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Enemy"))
